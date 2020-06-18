@@ -12,7 +12,10 @@
   "scripts": {
     "serve": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "realm-app:login": "npx realm-cli login --api-key=$REALM_CLI_API_PUBLIC_KEY --private-api-key=$REALM_CLI_API_PRIVATE_KEY",
+    "realm-app:pull": "rm -rf realm-app && npx realm-cli export --app-id=$REALM_APP_ID --output=realm-app --include-hosting",
+    "realm-app:push": "npm run build && cp -R build realm-app/hosting/files && npx realm-cli import --app-id=$REALM_APP_ID --path=realm-app --strategy=merge --include-hosting"
   },
   "browserslist": {
     "production": [
@@ -29,14 +32,14 @@
   "devDependencies": {
     "@craco/craco": "^5.6.4",
     "@testing-library/jest-dom": "^5.10.1",
-    "@testing-library/react": "^10.2.1",
+    "@testing-library/react": "^10.3.0",
     "@testing-library/user-event": "^12.0.2",
     "@types/eslint": "^7.2.0",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/jest": "^26.0.0",
     "@types/node": "^14.0.13",
     "@types/prettier": "^2.0.1",
-    "@types/react": "^16.9.36",
+    "@types/react": "^16.9.38",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
@@ -52,6 +55,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "mongodb-realm-cli": "^1.0.0",
     "prettier": "^2.0.5",
     "react-scripts": "3.4.1",
     "typescript": "~3.9.5"
