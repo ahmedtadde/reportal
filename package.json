@@ -57,7 +57,7 @@
     "eslint-plugin-react-hooks": "^4.0.4",
     "mongodb-realm-cli": "^1.0.0",
     "prettier": "^2.0.5",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "typescript": "~3.9.5"
   }
 }
